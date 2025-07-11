@@ -1,1 +1,0 @@
-/usr/bin/g++ @CMakeFiles/c_cuda_matmul.dir/objects1.rsp CMakeFiles/c_cuda_matmul.dir/cmake_device_link.o -o c_cuda_matmul @CMakeFiles/c_cuda_matmul.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"

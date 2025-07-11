@@ -22,23 +22,17 @@ if(NOT CMAKE_CUDA_ARCHITECTURES)
             CACHE STRING "GPU arch list" FORCE)       # :contentReference[oaicite:0]{index=0}
 endif()
 
-add_executable(c_cuda_matmul
-        src/main.c
-        src/cuda-kernel/matmul.cu
-        include/llamac.h
-        include/llcml.h
-        include/llamac_sampler.h)
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
-# Headers
-target_include_directories(c_cuda_matmul PRIVATE
-        ${PROJECT_SOURCE_DIR}/include
-        ${PROJECT_SOURCE_DIR}/src)
 
-# Nice-to-haves
-set_target_properties(c_cuda_matmul PROPERTIES
-        CUDA_SEPARABLE_COMPILATION ON      # link-time device code
-        CUDA_STANDARD 11)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-# Link the runtime (modern CMake gives you an imported target)
-find_package(CUDAToolkit REQUIRED)     # optional but explicit
-target_link_libraries(c_cuda_matmul PRIVATE CUDA::cudart)   # :contentReference[oaicite:1]{index=1}
+
+# core/tensor etc
+add_subdirectory(llcml)
+# tools/examples etc
+add_subdirectory(tools/llamac-runner)
+add_subdirectory(tools/guuf-reader)
+
