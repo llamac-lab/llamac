@@ -27,12 +27,6 @@ CMAKE_BUILD_TYPE:STRING=
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
-//CUDA architectures
-CMAKE_CUDA_ARCHITECTURES:STRING=52
-
-//CUDA compiler
-CMAKE_CUDA_COMPILER:FILEPATH=/usr/local/cuda/bin/nvcc
-
 //Flags used by the CUDA compiler during all build types.
 CMAKE_CUDA_FLAGS:STRING=
 
@@ -472,8 +466,6 @@ CMAKE_COMMAND:INTERNAL=/usr/local/bin/cmake
 CMAKE_CPACK_COMMAND:INTERNAL=/usr/local/bin/cpack
 //Path to ctest program executable.
 CMAKE_CTEST_COMMAND:INTERNAL=/usr/local/bin/ctest
-//ADVANCED property for variable: CMAKE_CUDA_COMPILER
-CMAKE_CUDA_COMPILER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CUDA_FLAGS
 CMAKE_CUDA_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CUDA_FLAGS_DEBUG

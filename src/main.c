@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "cuda-kernel/matmul.h"
+#include "llamac.h"
 
 int main() {
     const int N = 4;

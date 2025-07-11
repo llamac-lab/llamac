@@ -24,7 +24,9 @@ endif()
 
 add_executable(c_cuda_matmul
         src/main.c
-        src/cuda-kernel/matmul.cu)
+        src/cuda-kernel/matmul.cu
+        include/llamac.h
+        include/llcml.h)
 
 # Headers
 target_include_directories(c_cuda_matmul PRIVATE

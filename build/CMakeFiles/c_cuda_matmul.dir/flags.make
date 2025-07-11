@@ -13,5 +13,5 @@ CUDA_DEFINES =
 
 CUDA_INCLUDES = --options-file CMakeFiles/c_cuda_matmul.dir/includes_CUDA.rsp
 
-CUDA_FLAGS = -std=c++11 "--generate-code=arch=compute_52,code=[compute_52,sm_52]"
+CUDA_FLAGS = -std=c++11 "--generate-code=arch=compute_89,code=[compute_89,sm_89]"
 
