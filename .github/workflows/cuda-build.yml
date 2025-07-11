@@ -19,6 +19,13 @@ jobs:
         run: |
           apt update && apt install -y cmake ninja-build build-essential
 
+      - name: Configure CMake
+        run: |
+          rm -rf build  # always nuke the cache
+          mkdir build
+          cd build
+          cmake .. -G Ninja -DCMAKE_CUDA_ARCHITECTURES=89
+
       - name: Build with CMake + Ninja
         run: |
           mkdir -p build
