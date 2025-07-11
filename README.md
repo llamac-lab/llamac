@@ -8,3 +8,4 @@ Think [`llama.cpp`](https://github.com/ggerganov/llama.cpp), but:
 - Easy to integrate with any stack (Rust, Python, etc.)
 - Born for the edge
 
+note: work in progress, not a functioning anything yet :)
