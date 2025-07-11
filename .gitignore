@@ -1,0 +1,57 @@
+# === Rust ===
+/target/
+**/*.rs.bk
+Cargo.lock
+.cargo/
+
+# === C / C++ / CUDA ===
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dll
+*.dylib
+*.exe
+*.out
+*.pdb
+*.exp
+
+# === CUDA ===
+*.ptx
+*.cubin
+*.nvcc.*
+
+# === CMake ===
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
+/build/
+
+# === VSCode / JetBrains IDEs ===
+.vscode/
+.idea/
+*.code-workspace
+
+# === OS / Misc ===
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.swn
+*.sublime-workspace
+*.sublime-project
+
+# === Python (if ever scripting helpers) ===
+*.pyc
+__pycache__/
+
+# === Optional: Git patch temp files ===
+*.orig
+*.rej
+
