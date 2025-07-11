@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18)      # 3.18+ has first-class CUDA support
+cmake_minimum_required(VERSION 3.31)      # 3.18+ has first-class CUDA support
 if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES OR CMAKE_CUDA_ARCHITECTURES STREQUAL "native")
     set(CMAKE_CUDA_ARCHITECTURES 89)
 endif()
