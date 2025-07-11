@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.18)      # 3.18+ has first-class CUDA support
-set(CMAKE_CUDA_ARCHITECTURES "native")
+if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES OR CMAKE_CUDA_ARCHITECTURES STREQUAL "native")
+    set(CMAKE_CUDA_ARCHITECTURES 89)
+endif()
 set(CMAKE_CUDA_COMPILER "/usr/local/cuda/bin/nvcc")
 project(c_cuda_matmul LANGUAGES C CUDA)   # <- CUDA lives here again
 
