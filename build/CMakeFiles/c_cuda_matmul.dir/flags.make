@@ -5,7 +5,7 @@
 # compile CUDA with /usr/local/cuda/bin/nvcc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/ervin/workspace/POC/llamac-lab/include
+C_INCLUDES = -I/home/ervin/workspace/POC/llamac-lab/include -I/home/ervin/workspace/POC/llamac-lab/src -isystem /usr/local/cuda/targets/x86_64-linux/include
 
 C_FLAGS = -std=gnu11
 
@@ -13,5 +13,5 @@ CUDA_DEFINES =
 
 CUDA_INCLUDES = --options-file CMakeFiles/c_cuda_matmul.dir/includes_CUDA.rsp
 
-CUDA_FLAGS = -std=c++17 "--generate-code=arch=compute_86,code=[compute_86,sm_86]" "--generate-code=arch=compute_89,code=[compute_89,sm_89]"
+CUDA_FLAGS = -std=c++11 "--generate-code=arch=compute_52,code=[compute_52,sm_52]"
 

@@ -1,0 +1,30 @@
+name: Build (CUDA - no GPU)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: nvidia/cuda:12.4.1-devel-ubuntu22.04
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          apt update && apt install -y cmake ninja-build build-essential
+
+      - name: Build with CMake + Ninja
+        run: |
+          mkdir -p build
+          cd build
+          cmake .. -G Ninja -DCMAKE_CUDA_ARCHITECTURES=89
+          ninja
+
+      - name: Mark build successful (no GPU testing)
+        run: echo "Build successful. GPU testing is skipped on CI. No way Jose."

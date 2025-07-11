@@ -1,7 +1,7 @@
 CMakeFiles/c_cuda_matmul.dir/src/cuda-kernel/matmul.cu.o : /home/ervin/workspace/POC/llamac-lab/src/cuda-kernel/matmul.cu \
     /usr/include/stdc-predef.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_runtime.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/host_config.h \
+    /usr/local/cuda/targets/x86_64-linux/include/cuda_runtime.h \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/host_config.h \
     /usr/include/features.h \
     /usr/include/features-time64.h \
     /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -10,9 +10,9 @@ CMakeFiles/c_cuda_matmul.dir/src/cuda-kernel/matmul.cu.o : /home/ervin/workspace
     /usr/include/x86_64-linux-gnu/bits/long-double.h \
     /usr/include/x86_64-linux-gnu/gnu/stubs.h \
     /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/device_types.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/host_defines.h \
+    /usr/local/cuda/targets/x86_64-linux/include/builtin_types.h \
+    /usr/local/cuda/targets/x86_64-linux/include/device_types.h \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/host_defines.h \
     /usr/include/ctype.h \
     /usr/include/x86_64-linux-gnu/bits/types.h \
     /usr/include/x86_64-linux-gnu/bits/typesizes.h \
@@ -21,8 +21,8 @@ CMakeFiles/c_cuda_matmul.dir/src/cuda-kernel/matmul.cu.o : /home/ervin/workspace
     /usr/include/x86_64-linux-gnu/bits/endianness.h \
     /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
     /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h \
+    /usr/local/cuda/targets/x86_64-linux/include/driver_types.h \
+    /usr/local/cuda/targets/x86_64-linux/include/vector_types.h \
     /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
     /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
     /usr/include/limits.h \
@@ -35,18 +35,17 @@ CMakeFiles/c_cuda_matmul.dir/src/cuda-kernel/matmul.cu.o : /home/ervin/workspace
     /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
     /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
     /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/surface_types.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/texture_types.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/channel_descriptor.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_runtime_api.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_device_runtime_api.h \
+    /usr/local/cuda/targets/x86_64-linux/include/surface_types.h \
+    /usr/local/cuda/targets/x86_64-linux/include/texture_types.h \
+    /usr/local/cuda/targets/x86_64-linux/include/library_types.h \
+    /usr/local/cuda/targets/x86_64-linux/include/channel_descriptor.h \
+    /usr/local/cuda/targets/x86_64-linux/include/cuda_runtime_api.h \
+    /usr/local/cuda/targets/x86_64-linux/include/cuda_device_runtime_api.h \
     /usr/include/c++/11/stdlib.h \
     /usr/include/c++/11/cstdlib \
     /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
     /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
     /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
-    /usr/include/c++/11/pstl/pstl_config.h \
     /usr/include/stdlib.h \
     /usr/include/x86_64-linux-gnu/bits/waitflags.h \
     /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
@@ -76,10 +75,10 @@ CMakeFiles/c_cuda_matmul.dir/src/cuda-kernel/matmul.cu.o : /home/ervin/workspace
     /usr/include/alloca.h \
     /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
     /usr/include/c++/11/bits/std_abs.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/driver_functions.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/vector_functions.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/vector_functions.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/common_functions.h \
+    /usr/local/cuda/targets/x86_64-linux/include/driver_functions.h \
+    /usr/local/cuda/targets/x86_64-linux/include/vector_functions.h \
+    /usr/local/cuda/targets/x86_64-linux/include/vector_functions.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/common_functions.h \
     /usr/include/string.h \
     /usr/include/strings.h \
     /usr/include/time.h \
@@ -100,7 +99,7 @@ CMakeFiles/c_cuda_matmul.dir/src/cuda-kernel/matmul.cu.o : /home/ervin/workspace
     /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
     /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
     /usr/include/assert.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/math_functions.h \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/math_functions.h \
     /usr/include/c++/11/math.h \
     /usr/include/c++/11/cmath \
     /usr/include/c++/11/bits/cpp_type_traits.h \
@@ -115,70 +114,44 @@ CMakeFiles/c_cuda_matmul.dir/src/cuda-kernel/matmul.cu.o : /home/ervin/workspace
     /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
     /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
     /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
-    /usr/include/c++/11/bits/specfun.h \
-    /usr/include/c++/11/bits/stl_algobase.h \
-    /usr/include/c++/11/bits/functexcept.h \
-    /usr/include/c++/11/bits/exception_defines.h \
-    /usr/include/c++/11/ext/numeric_traits.h \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/math_functions.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/device_functions.h \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/device_functions.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/device_atomic_functions.h \
+    /usr/local/cuda/targets/x86_64-linux/include/device_atomic_functions.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/device_double_functions.h \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/device_double_functions.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_20_atomic_functions.h \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_20_atomic_functions.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_32_atomic_functions.h \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_32_atomic_functions.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_35_atomic_functions.h \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_60_atomic_functions.h \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_60_atomic_functions.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_20_intrinsics.h \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_20_intrinsics.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_30_intrinsics.h \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_30_intrinsics.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_32_intrinsics.h \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_32_intrinsics.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_35_intrinsics.h \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_61_intrinsics.h \
+    /usr/local/cuda/targets/x86_64-linux/include/sm_61_intrinsics.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/sm_70_rt.h \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/sm_70_rt.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/sm_80_rt.h \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/sm_80_rt.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/sm_90_rt.h \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/sm_90_rt.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/sm_100_rt.h \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/sm_100_rt.hpp \
+    /usr/local/cuda/targets/x86_64-linux/include/texture_indirect_functions.h \
+    /usr/local/cuda/targets/x86_64-linux/include/surface_indirect_functions.h \
+    /usr/local/cuda/targets/x86_64-linux/include/crt/cudacc_ext.h \
+    /usr/local/cuda/targets/x86_64-linux/include/device_launch_parameters.h \
+    /usr/include/c++/11/utility \
+    /usr/include/c++/11/bits/stl_relops.h \
     /usr/include/c++/11/bits/stl_pair.h \
     /usr/include/c++/11/bits/move.h \
     /usr/include/c++/11/type_traits \
-    /usr/include/c++/11/bits/stl_iterator_base_types.h \
-    /usr/include/c++/11/bits/stl_iterator_base_funcs.h \
-    /usr/include/c++/11/bits/concept_check.h \
-    /usr/include/c++/11/debug/assertions.h \
-    /usr/include/c++/11/bits/stl_iterator.h \
-    /usr/include/c++/11/bits/ptr_traits.h \
-    /usr/include/c++/11/debug/debug.h \
-    /usr/include/c++/11/bits/predefined_ops.h \
-    /usr/include/c++/11/limits \
-    /usr/include/c++/11/tr1/gamma.tcc \
-    /usr/include/c++/11/tr1/special_function_util.h \
-    /usr/include/c++/11/tr1/bessel_function.tcc \
-    /usr/include/c++/11/tr1/beta_function.tcc \
-    /usr/include/c++/11/tr1/ell_integral.tcc \
-    /usr/include/c++/11/tr1/exp_integral.tcc \
-    /usr/include/c++/11/tr1/hypergeometric.tcc \
-    /usr/include/c++/11/tr1/legendre_function.tcc \
-    /usr/include/c++/11/tr1/modified_bessel_func.tcc \
-    /usr/include/c++/11/tr1/poly_hermite.tcc \
-    /usr/include/c++/11/tr1/poly_laguerre.tcc \
-    /usr/include/c++/11/tr1/riemann_zeta.tcc \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/math_functions.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_functions.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_functions.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_double_functions.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_double_functions.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_20_atomic_functions.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_20_atomic_functions.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_35_atomic_functions.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_20_intrinsics.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_20_intrinsics.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_35_intrinsics.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/sm_70_rt.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/sm_70_rt.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/sm_80_rt.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/sm_80_rt.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/sm_90_rt.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/sm_90_rt.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/sm_100_rt.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/sm_100_rt.hpp \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/cudacc_ext.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/device_launch_parameters.h \
-    /usr/include/c++/11/utility \
-    /usr/include/c++/11/bits/stl_relops.h \
     /usr/include/c++/11/initializer_list

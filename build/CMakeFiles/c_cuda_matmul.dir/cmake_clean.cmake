@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/c_cuda_matmul.dir/cmake_device_link.o"
   "CMakeFiles/c_cuda_matmul.dir/src/cuda-kernel/matmul.cu.o"
   "CMakeFiles/c_cuda_matmul.dir/src/cuda-kernel/matmul.cu.o.d"
   "CMakeFiles/c_cuda_matmul.dir/src/main.c.o"
