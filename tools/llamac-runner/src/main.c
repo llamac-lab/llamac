@@ -6,7 +6,6 @@
 int main() {
 
     // crude lib test
-    lib();
 
     const int N = 4;
     float A[N*N], B[N*N], C[N*N];
