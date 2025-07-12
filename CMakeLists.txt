@@ -31,7 +31,8 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 
 # core/tensor etc
-add_subdirectory(llcml)
+add_subdirectory(llamac)
+add_subdirectory(llamacpp20)
 # tools/examples etc
 add_subdirectory(tools/llamac-runner)
 add_subdirectory(tools/guuf-reader)

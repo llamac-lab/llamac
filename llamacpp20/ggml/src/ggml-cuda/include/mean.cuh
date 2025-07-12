@@ -12,16 +12,9 @@
  * Licensed under the MIT License. See LICENSE file in the repository root.
  */
 
+#ifndef MEAN_CUH
+#define MEAN_CUH
 
-#ifndef COMMON_CUH
-#define COMMON_CUH
 
-struct ggml_tensor {
 
-};
-
-struct ggml_backend_cuda_context {
-
-};
-
-#endif //COMMON_CUH
+#endif //MEAN_CUH

@@ -9,9 +9,11 @@ add_executable(llamac_runner
         src/main.c
 )
 
-target_link_libraries(llamac_runner PRIVATE llcml)
-
 target_include_directories(llamac_runner PRIVATE
-        ${CMAKE_SOURCE_DIR}/include
-        ${CMAKE_SOURCE_DIR}/llcml/include
+        ${CMAKE_SOURCE_DIR}/llamac/include
+        ${CMAKE_SOURCE_DIR}/llamac/llmclm/include
+        ${CMAKE_SOURCE_DIR}/llamacpp20/ggml/include
 )
+
+target_link_libraries(llamac_runner PRIVATE llamac)
+

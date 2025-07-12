@@ -1,13 +1,13 @@
 #include <stdio.h>
-
-#include "../../../llcml/llcml-cuda/include/matmul.cuh"
-#include "../../../llcml/llcml-cuda/include/wkv.cuh"
-
+#include "ggml.h"
 #include "llamac.h"
-
 
 // todo: just a placeholder for now... will be moved to the cuda module
 int main() {
+
+    // crude lib test
+    lib();
+
     const int N = 4;
     float A[N*N], B[N*N], C[N*N];
 

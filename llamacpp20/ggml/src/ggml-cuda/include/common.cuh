@@ -12,9 +12,20 @@
  * Licensed under the MIT License. See LICENSE file in the repository root.
  */
 
-#ifndef MEAN_CUH
-#define MEAN_CUH
 
-void llcml
+#ifndef COMMON_CUH
+#define COMMON_CUH
 
-#endif //MEAN_CUH
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
+
+#ifdef __cplusplus
+}
+#endif
+
+
+#endif //COMMON_CUH

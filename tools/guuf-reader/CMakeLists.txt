@@ -6,6 +6,7 @@ set(CMAKE_C_STANDARD 23)
 add_executable(gguf_reader
         src/main.c
         src/gguf_reader.c
+        ../../llamac/src/llamac.c
 )
 
 target_include_directories(gguf_reader PRIVATE
@@ -14,4 +15,4 @@ target_include_directories(gguf_reader PRIVATE
         ${CMAKE_SOURCE_DIR}/llcml/llcml-cuda/include
 )
 
-target_link_libraries(gguf_reader PRIVATE llcml)
+target_link_libraries(gguf_reader PRIVATE llamac)
