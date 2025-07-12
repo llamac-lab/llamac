@@ -57,6 +57,27 @@ extern "C" {
     //    llama_sampler_free(smpl);
     //
 
+    typedef void * llamac_sampler_context_t;
+
+    // user code can implement the interface below in order to create custom llamac_sampler
+    // _i -> interface
+    struct llamac_sampler_i {
+        const char *           (*name)  (const struct llamac_sampler * smpl);                                 // can be NULL
+        void                   (*accept)(      struct llamac_sampler * smpl, llamac_token token);              // can be NULL
+        void                   (*apply) (      struct llamac_sampler * smpl, llamac_token_data_array * cur_p); // required
+        void                   (*reset) (      struct llamac_sampler * smpl);                                 // can be NULL
+        struct llamac_sampler* (*clone) (const struct llamac_sampler * smpl);                                 // can be NULL if ctx is NULL
+        void                   (*free)  (      struct llamac_sampler * smpl);                                 // can be NULL if ctx is NULL
+
+        // todo: the below todo from the original codebase
+        // todo: API for internal libllama usage for appending the sampling to an existing ggml_cgraph
+        //void (*apply_llcml) (struct llamac_sampler * smpl, ...);
+    };
+
+    struct llamac_sampler {
+        const struct llamac_sampler_i * iface;
+        llamac_sampler_context_t        ctx;
+    };
 
 // llamac_sampler_free
 // llamac_sampler_chain_init

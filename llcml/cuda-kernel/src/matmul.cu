@@ -1,7 +1,7 @@
 #include <cuda_runtime.h>
 #include <stdio.h>
 
-extern "C" void matmul_cuda(const float* A, const float* B, float* C, int N);
+#include "matmul.cuh"
 
 __global__ void matmul_kernel(const float* A, const float* B, float* C, int N) {
     int row = blockIdx.y * blockDim.y + threadIdx.y;

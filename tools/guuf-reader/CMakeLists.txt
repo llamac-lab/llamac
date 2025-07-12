@@ -6,6 +6,7 @@ set(CMAKE_C_STANDARD 23)
 add_executable(gguf_reader
         src/main.c
         src/gguf_reader.c
+        ../../llcml/cuda-kernel/include/matmul.cuh
 )
 
 target_include_directories(gguf_reader PRIVATE
