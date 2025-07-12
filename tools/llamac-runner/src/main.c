@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#include "../../../llcml/cuda-kernel/include/matmul.cuh"
-#include "../../../llcml/cuda-kernel/include/wkv.cuh"
+#include "../../../llcml/llcml-cuda/include/matmul.cuh"
+#include "../../../llcml/llcml-cuda/include/wkv.cuh"
 
 #include "llamac.h"
 
