@@ -8,7 +8,7 @@ fn main() {
     let in_ci = std::env::var("CI").is_ok();
     // let cmake_cache = llama_build_dir.join("CMakeCache.txt");
     // let cmake_files = llama_build_dir.join("CMakeFiles");
-    // 
+    //
     // // Only delete if cache exists
     // if cmake_cache.exists() {
     //     eprintln!("Removing stale CMake cache...");
@@ -39,7 +39,7 @@ fn main() {
     }
 
     cmake_args.push(llama_src_dir.to_str().unwrap());
-    
+
     let status = Command::new("cmake")
         .current_dir(&llama_build_dir)
         .args(&cmake_args)

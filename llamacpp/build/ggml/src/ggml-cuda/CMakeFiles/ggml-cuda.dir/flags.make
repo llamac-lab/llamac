@@ -6,5 +6,5 @@ CUDA_DEFINES = -DGGML_BACKEND_BUILD -DGGML_BACKEND_SHARED -DGGML_CUDA_FORCE_CUBL
 
 CUDA_INCLUDES = --options-file CMakeFiles/ggml-cuda.dir/includes_CUDA.rsp
 
-CUDA_FLAGS = -O3 -DNDEBUG -std=c++17 -arch=native -Xcompiler=-fPIC -use_fast_math -extended-lambda -compress-mode=size -Xcompiler "-Wmissing-declarations -Wmissing-noreturn -Wall -Wextra -Wpedantic -Wcast-qual -Wno-unused-function -Wno-array-bounds -Wextra-semi -Wno-pedantic"
+CUDA_FLAGS = -std=c++17 -arch=native -Xcompiler=-fPIC -use_fast_math -extended-lambda -compress-mode=size -Xcompiler "-Wmissing-declarations -Wmissing-noreturn -Wall -Wextra -Wpedantic -Wcast-qual -Wno-unused-function -Wno-array-bounds -Wextra-semi -Wno-pedantic"
 

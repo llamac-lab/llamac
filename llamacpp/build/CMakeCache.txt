@@ -17,6 +17,9 @@
 //ggml: build shared libraries
 BUILD_SHARED_LIBS:BOOL=ON
 
+//Build the testing tree.
+BUILD_TESTING:BOOL=ON
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
@@ -31,7 +34,7 @@ CMAKE_BUILD_TYPE:STRING=Release
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
 //CUDA compiler
-CMAKE_CUDA_COMPILER:FILEPATH=CMAKE_CUDA_COMPILER-NOTFOUND
+CMAKE_CUDA_COMPILER:FILEPATH=/usr/local/cuda/bin/nvcc
 
 //Flags used by the CUDA compiler during all build types.
 CMAKE_CUDA_FLAGS:STRING=
@@ -284,6 +287,19 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Path to the coverage program that CTest uses for performing coverage
+// inspection
+COVERAGE_COMMAND:FILEPATH=/usr/bin/gcov
+
+//Extra command line flags to pass to the coverage tool
+COVERAGE_EXTRA_FLAGS:STRING=-l
+
+//How many times to retry timed-out CTest submissions.
+CTEST_SUBMIT_RETRY_COUNT:STRING=3
+
+//How long to wait between timed-out CTest submissions.
+CTEST_SUBMIT_RETRY_DELAY:STRING=5
+
 CUDAToolkit_BIN_DIR:PATH=/usr/local/cuda/bin
 
 //Path to a file.
@@ -520,6 +536,21 @@ CUDA_nvrtc_static_LIBRARY:FILEPATH=/usr/local/cuda-12.9/targets/x86_64-linux/lib
 //Path to a library.
 CUDA_pcsamplingutil_LIBRARY:FILEPATH=/usr/local/cuda-12.9/targets/x86_64-linux/lib/libpcsamplingutil.so
 
+//The directory containing a CMake configuration file for CURL.
+CURL_DIR:PATH=CURL_DIR-NOTFOUND
+
+//Path to a file.
+CURL_INCLUDE_DIR:PATH=/usr/include/x86_64-linux-gnu
+
+//Path to a library.
+CURL_LIBRARY_DEBUG:FILEPATH=CURL_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+CURL_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libcurl.so
+
+//Maximum time allowed before CTest will kill the test.
+DART_TESTING_TIMEOUT:STRING=1500
+
 //No help, variable specified on the command line.
 DBUILD_SHARED_LIBS:UNINITIALIZED=OFF
 
@@ -561,6 +592,9 @@ GGML_AVX_VNNI:BOOL=OFF
 
 //ggml: build backends as dynamic libraries (requires BUILD_SHARED_LIBS)
 GGML_BACKEND_DL:BOOL=OFF
+
+//Location of binary  files
+GGML_BIN_INSTALL_DIR:PATH=bin
 
 //ggml: use BLAS
 GGML_BLAS:BOOL=OFF
@@ -661,8 +695,14 @@ GGML_HIP_NO_VMM:BOOL=ON
 //ggml: enable rocWMMA for FlashAttention
 GGML_HIP_ROCWMMA_FATTN:BOOL=OFF
 
+//Location of header  files
+GGML_INCLUDE_INSTALL_DIR:PATH=include
+
 //ggml: enable lasx
 GGML_LASX:BOOL=ON
+
+//Location of library files
+GGML_LIB_INSTALL_DIR:PATH=lib
 
 //ggml: use LLAMAFILE
 GGML_LLAMAFILE:BOOL=ON
@@ -811,6 +851,9 @@ LLAMA_ALL_WARNINGS:BOOL=ON
 //llama: enable all compiler warnings in 3rd party libs
 LLAMA_ALL_WARNINGS_3RD_PARTY:BOOL=OFF
 
+//Location of binary  files
+LLAMA_BIN_INSTALL_DIR:PATH=bin
+
 //llama: build common utils library
 LLAMA_BUILD_COMMON:BOOL=ON
 
@@ -832,6 +875,12 @@ LLAMA_CURL:BOOL=ON
 //llama: enable -Werror flag
 LLAMA_FATAL_WARNINGS:BOOL=OFF
 
+//Location of header  files
+LLAMA_INCLUDE_INSTALL_DIR:PATH=include
+
+//Location of library files
+LLAMA_LIB_INSTALL_DIR:PATH=lib
+
 //llama-common: include LLGuidance library for structured output
 // in common utils
 LLAMA_LLGUIDANCE:BOOL=OFF
@@ -845,11 +894,26 @@ LLAMA_SANITIZE_THREAD:BOOL=OFF
 //llama: enable undefined sanitizer
 LLAMA_SANITIZE_UNDEFINED:BOOL=OFF
 
+//Build SSL support for the server
+LLAMA_SERVER_SSL:BOOL=OFF
+
 //No help, variable specified on the command line.
 LLAMA_STANDALONE:UNINITIALIZED=ON
 
 //Use system libggml
 LLAMA_USE_SYSTEM_GGML:BOOL=OFF
+
+//Command to build the project
+MAKECOMMAND:STRING=/usr/local/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+
+//Path to a library.
+MATH_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libm.so
+
+//Path to the memory checking command, used for memory error detection.
+MEMORYCHECK_COMMAND:FILEPATH=/usr/bin/valgrind
+
+//File that contains suppressions for the memory checker
+MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
 
 //CXX compiler flags for OpenMP parallelization
 OpenMP_CXX_FLAGS:STRING=-fopenmp
@@ -869,6 +933,15 @@ OpenMP_gomp_LIBRARY:FILEPATH=/usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
 //Path to the pthread library for OpenMP
 OpenMP_pthread_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpthread.a
 
+//Arguments to supply to pkg-config
+PKG_CONFIG_ARGN:STRING=
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
+//Name of the computer/site where compile is being run
+SITE:STRING=pop-os
+
 //Value Computed by CMake
 ggml_BINARY_DIR:STATIC=/home/ervin/workspace/POC/llamac-lab/llamac/llamacpp/build/ggml
 
@@ -886,6 +959,9 @@ llamacpp_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 llamacpp_SOURCE_DIR:STATIC=/home/ervin/workspace/POC/llamac-lab/llamac/llamacpp
+
+//Path to a library.
+pkgcfg_lib_PC_CURL_curl:FILEPATH=/usr/lib/x86_64-linux-gnu/libcurl.so
 
 
 ########################
@@ -910,6 +986,8 @@ CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 CMAKE_COMMAND:INTERNAL=/usr/local/bin/cmake
 //Path to cpack program executable.
 CMAKE_CPACK_COMMAND:INTERNAL=/usr/local/bin/cpack
+//ADVANCED property for variable: CMAKE_CTEST_COMMAND
+CMAKE_CTEST_COMMAND-ADVANCED:INTERNAL=1
 //Path to ctest program executable.
 CMAKE_CTEST_COMMAND:INTERNAL=/usr/local/bin/ctest
 //ADVANCED property for variable: CMAKE_CUDA_COMPILER
@@ -1040,7 +1118,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=23
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1085,6 +1163,14 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: COVERAGE_COMMAND
+COVERAGE_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: COVERAGE_EXTRA_FLAGS
+COVERAGE_EXTRA_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CTEST_SUBMIT_RETRY_COUNT
+CTEST_SUBMIT_RETRY_COUNT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CTEST_SUBMIT_RETRY_DELAY
+CTEST_SUBMIT_RETRY_DELAY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDAToolkit_BIN_DIR
 CUDAToolkit_BIN_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDAToolkit_CUPTI_INCLUDE_DIR
@@ -1243,8 +1329,20 @@ CUDA_nvrtc_builtins_static_LIBRARY-ADVANCED:INTERNAL=1
 CUDA_nvrtc_static_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_pcsamplingutil_LIBRARY
 CUDA_pcsamplingutil_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CURL_DIR
+CURL_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CURL_INCLUDE_DIR
+CURL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CURL_LIBRARY_DEBUG
+CURL_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CURL_LIBRARY_RELEASE
+CURL_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DART_TESTING_TIMEOUT
+DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
 //Details about finding CUDAToolkit
 FIND_PACKAGE_MESSAGE_DETAILS_CUDAToolkit:INTERNAL=[/usr/local/cuda/targets/x86_64-linux/include][/usr/local/cuda/lib64/libcudart.so][/usr/local/cuda/bin][v12.9.86()]
+//Details about finding CURL
+FIND_PACKAGE_MESSAGE_DETAILS_CURL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libcurl.so][/usr/include/x86_64-linux-gnu][c ][v7.81.0()]
 //Details about finding Git
 FIND_PACKAGE_MESSAGE_DETAILS_Git:INTERNAL=[/usr/bin/git][v2.34.1()]
 //Details about finding OpenMP
@@ -1256,11 +1354,17 @@ FIND_PACKAGE_MESSAGE_DETAILS_OpenMP_CXX:INTERNAL=[-fopenmp][/usr/lib/gcc/x86_64-
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //List of backends for cmake package
-GGML_AVAILABLE_BACKENDS:INTERNAL=ggml-cpu
+GGML_AVAILABLE_BACKENDS:INTERNAL=ggml-cpu;ggml-cuda
 //STRINGS property for variable: GGML_CUDA_COMPRESSION_MODE
 GGML_CUDA_COMPRESSION_MODE-STRINGS:INTERNAL=none;speed;balance;size
 //ADVANCED property for variable: GIT_EXECUTABLE
 GIT_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MAKECOMMAND
+MAKECOMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MEMORYCHECK_COMMAND
+MEMORYCHECK_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MEMORYCHECK_SUPPRESSIONS_FILE
+MEMORYCHECK_SUPPRESSIONS_FILE-ADVANCED:INTERNAL=1
 //Result of TRY_COMPILE
 OpenMP_COMPILE_RESULT_CXX_fopenmp:INTERNAL=TRUE
 //Result of TRY_COMPILE
@@ -1285,10 +1389,56 @@ OpenMP_SPECTEST_C_:INTERNAL=TRUE
 OpenMP_gomp_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OpenMP_pthread_LIBRARY
 OpenMP_pthread_LIBRARY-ADVANCED:INTERNAL=1
+PC_CURL_CFLAGS:INTERNAL=-I/usr/include/x86_64-linux-gnu
+PC_CURL_CFLAGS_I:INTERNAL=
+PC_CURL_CFLAGS_OTHER:INTERNAL=
+PC_CURL_FOUND:INTERNAL=1
+PC_CURL_INCLUDEDIR:INTERNAL=/usr/include/x86_64-linux-gnu
+PC_CURL_INCLUDE_DIRS:INTERNAL=/usr/include/x86_64-linux-gnu
+PC_CURL_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lcurl
+PC_CURL_LDFLAGS_OTHER:INTERNAL=
+PC_CURL_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_CURL_LIBRARIES:INTERNAL=curl
+PC_CURL_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_CURL_LIBS:INTERNAL=
+PC_CURL_LIBS_L:INTERNAL=
+PC_CURL_LIBS_OTHER:INTERNAL=
+PC_CURL_LIBS_PATHS:INTERNAL=
+PC_CURL_MODULE_NAME:INTERNAL=libcurl
+PC_CURL_PREFIX:INTERNAL=/usr
+PC_CURL_STATIC_CFLAGS:INTERNAL=-I/usr/include/x86_64-linux-gnu
+PC_CURL_STATIC_CFLAGS_I:INTERNAL=
+PC_CURL_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_CURL_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/x86_64-linux-gnu
+PC_CURL_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-L/usr/lib/x86_64-linux-gnu/mit-krb5;-lcurl;-lnghttp2;-lidn2;-lrtmp;-lssh;-lpsl;-lssl;-lcrypto;-lssl;-lcrypto;-lgssapi_krb5;-llber;-lldap;-llber;-lzstd;-lbrotlidec;-lz
+PC_CURL_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_CURL_STATIC_LIBDIR:INTERNAL=
+PC_CURL_STATIC_LIBRARIES:INTERNAL=curl;nghttp2;idn2;rtmp;ssh;psl;ssl;crypto;ssl;crypto;gssapi_krb5;lber;ldap;lber;zstd;brotlidec;z
+PC_CURL_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu/mit-krb5
+PC_CURL_STATIC_LIBS:INTERNAL=
+PC_CURL_STATIC_LIBS_L:INTERNAL=
+PC_CURL_STATIC_LIBS_OTHER:INTERNAL=
+PC_CURL_STATIC_LIBS_PATHS:INTERNAL=
+PC_CURL_VERSION:INTERNAL=7.81.0
+PC_CURL_libcurl_INCLUDEDIR:INTERNAL=
+PC_CURL_libcurl_LIBDIR:INTERNAL=
+PC_CURL_libcurl_PREFIX:INTERNAL=
+PC_CURL_libcurl_VERSION:INTERNAL=
+//ADVANCED property for variable: PKG_CONFIG_ARGN
+PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SITE
+SITE-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
+__pkg_config_arguments_PC_CURL:INTERNAL=QUIET;libcurl
+__pkg_config_checked_PC_CURL:INTERNAL=1
 //CUDAToolkit internal list of implicit link directories
 _cmake_CUDAToolkit_implicit_link_directories:INTERNAL=/usr/local/cuda/targets/x86_64-linux/lib/stubs;/usr/local/cuda/targets/x86_64-linux/lib
 //CUDAToolkit internal list of include directories
 _cmake_CUDAToolkit_include_directories:INTERNAL=/usr/local/cuda/targets/x86_64-linux/include
+//ADVANCED property for variable: pkgcfg_lib_PC_CURL_curl
+pkgcfg_lib_PC_CURL_curl-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=AsynchDNS;GSS-API;HSTS;HTTP2;HTTPS-proxy;IDN;IPv6;Kerberos;Largefile;NTLM;NTLM_WB;PSL;SPNEGO;SSL;TLS-SRP;UnixSockets;alt-svc;brotli;libz;zstd
 
