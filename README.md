@@ -11,3 +11,6 @@ Think [`llama.cpp`](https://github.com/ggerganov/llama.cpp), but:
 - Born for the edge
 
 note: work in progress, not a functioning anything yet :)
+
+working inferencing (currently using llamacpp as a backend)
+<img width="1793" height="387" alt="image" src="https://github.com/user-attachments/assets/f88d8620-19f1-490a-861f-599fca071e1f" />
