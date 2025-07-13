@@ -1,5 +1,4 @@
 use glob::glob;
-use num_cpus;
 use std::{env, fs, path::PathBuf, process::Command};
 
 fn main() {
@@ -17,7 +16,7 @@ fn main() {
     // Configure
     let status = Command::new("cmake")
         .current_dir(&llama_build_dir)
-        .args(&[
+        .args([
             "-DCMAKE_BUILD_TYPE=Release",
             "-DLLAMA_BUILD_EXAMPLES=OFF",
             "-DDBUILD_SHARED_LIBS=OFF",
@@ -59,7 +58,7 @@ fn main() {
 
     for so_dir in &so_dirs {
         let pattern_str = format!("{}/*.so", so_dir.to_str().unwrap());
-        eprintln!("[debug] .so glob pattern: {}", pattern_str);
+        eprintln!("[debug] .so glob pattern: {pattern_str}");
 
         for entry in glob(&pattern_str).expect("Failed to read glob pattern") {
             match entry {
@@ -67,13 +66,12 @@ fn main() {
                     let filename = path.file_name().unwrap();
 
                     let dest_out = out_dir.join(filename);
-                    fs::copy(&path, &dest_out).unwrap_or_else(|e| {
-                        panic!("Failed to copy {:?} to {:?}: {}", path, dest_out, e)
-                    });
+                    fs::copy(&path, &dest_out)
+                        .unwrap_or_else(|e| panic!("Failed to copy {path:?} to {dest_out:?}: {e}"));
 
                     let dest_target = target_dir.join(filename);
                     fs::copy(&path, &dest_target).unwrap_or_else(|e| {
-                        panic!("Failed to copy {:?} to {:?}: {}", path, dest_target, e)
+                        panic!("Failed to copy {path:?} to {dest_target:?}: {e}")
                     });
 
                     println!("cargo:rustc-link-search=native={}", out_dir.display());
@@ -86,7 +84,7 @@ fn main() {
                             .trim_end_matches(".so")
                     );
                 }
-                Err(e) => eprintln!("Glob error: {:?}", e),
+                Err(e) => eprintln!("Glob error: {e:?}"),
             }
         }
     }

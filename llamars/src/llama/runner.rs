@@ -2,7 +2,10 @@
 #![allow(unused_variables)]
 #![allow(unused_imports)]
 #![allow(dead_code)]
+#![allow(clippy::uninlined_format_args)]
+#![allow(clippy::derivable_impls)]
 
+// todo: cleanup the above mess
 // todo: needs some love later
 // todo: factor out chat_message dependency which is not directly llamacpp stuff
 
@@ -271,7 +274,7 @@ impl LlamaRunner {
         unsafe { llama_n_ctx(self.context) }
     }
 
-    /// Get the conversation history
+    // Get the conversation history
     // pub fn messages(&self) -> &VecDeque<ChatMessage> {
     //     &self.messages
     // }
@@ -601,7 +604,7 @@ impl LlamaRunner {
                     tmpl_ptr,
                     messages.as_ptr(),
                     messages.len(),
-                    false.into(),
+                    false,
                     std::ptr::null_mut(),
                     0,
                 )
@@ -625,7 +628,7 @@ impl LlamaRunner {
             .build();
 
         let mut runner = Self::new(options)?;
-        Ok(runner.generate(prompt)?)
+        runner.generate(prompt)
     }
 }
 
@@ -715,6 +718,7 @@ impl LlamaRunner {
             let mut token_id: c_int = 0;
 
             // Step 4: Autoregressive loop
+            #[allow(clippy::never_loop)]
             loop {
                 // 1. Check if there's room left in the context
                 let n_ctx = unsafe { llama_n_ctx(self.context) };
@@ -734,7 +738,7 @@ impl LlamaRunner {
                 println!("[DEBUG] pos ptr = {:?}", batch.pos);
                 let vocab = unsafe { llama_model_get_vocab(self.model) };
                 let vocab_type = unsafe { llama_vocab_type(vocab) };
-                println!("[DEBUG] vocab_type = {}", vocab_type);
+                println!("[DEBUG] vocab_type = {vocab_type}");
                 // 2. Run model forward pass
                 let decode_result = unsafe { llama_decode(self.context, batch) };
                 if decode_result != 0 {
@@ -749,6 +753,7 @@ impl LlamaRunner {
         let mut formatted = unsafe { vec![0u8; llama_n_ctx(self.context) as usize] };
         let mut prev_len = 0;
 
+        #[allow(clippy::never_loop)]
         loop {
             print!("\x1b[32m> \x1b[0m");
             io::stdout().flush().ok();
@@ -835,9 +840,9 @@ impl LlamaParamsRaw {
                 context_params.n_threads_batch = n;
             }
 
-            if let Some(_) = options.temperature {
-                // not needed here unless passed to sampler
-            }
+            // if let Some(_) = options.temperature {
+            //     // not needed here unless passed to sampler
+            // }
 
             Self {
                 model_params,

@@ -1,4 +1,4 @@
-#[allow(non_camel_case_types)]
+#![allow(non_camel_case_types)]
 use std::ffi::CString;
 use std::os::raw::{c_char, c_float, c_int, c_void};
 //use std::ptr;
@@ -197,13 +197,13 @@ impl TryFrom<c_int> for LlamaRopeScalingType {
             1 => Ok(Self::Linear),
             2 => Ok(Self::Yarn),
             3 => Ok(Self::LongRope),
-            _ => Err(anyhow::anyhow!("Invalid rope scaling type: {}", value)),
+            _ => Err(anyhow::anyhow!("Invalid rope scaling type: {value}")),
         }
     }
 }
 impl std::fmt::Display for LlamaRopeScalingType {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{:?}", self)
+        write!(f, "{self:?}")
     }
 }
 
@@ -219,7 +219,7 @@ impl TryFrom<c_int> for LlamaPoolingType {
             2 => Ok(Self::Cls),
             3 => Ok(Self::Last),
             4 => Ok(Self::Rank),
-            _ => Err(anyhow!("Invalid pooling type: {}", value)),
+            _ => Err(anyhow!("Invalid pooling type: {value}")),
         }
     }
 }
@@ -234,7 +234,7 @@ impl fmt::Display for LlamaPoolingType {
             Self::Last => "Last",
             Self::Rank => "Rank",
         };
-        write!(f, "{}", s)
+        write!(f, "{s}")
     }
 }
 
@@ -247,7 +247,7 @@ impl TryFrom<c_int> for LlamaAttentionType {
             -1 => Ok(Self::Unspecified),
             0 => Ok(Self::Causal),
             1 => Ok(Self::NonCausal),
-            _ => Err(anyhow!("Invalid attention type: {}", value)),
+            _ => Err(anyhow!("Invalid attention type: {value}")),
         }
     }
 }
@@ -259,7 +259,7 @@ impl fmt::Display for LlamaAttentionType {
             Self::Causal => "Causal",
             Self::NonCausal => "NonCausal",
         };
-        write!(f, "{}", s)
+        write!(f, "{s}")
     }
 }
 
@@ -345,7 +345,7 @@ impl fmt::Display for GgmlType {
             Self::TQ2_0 => "TQ2_0",
             Self::Count => "COUNT",
         };
-        write!(f, "{}", name)
+        write!(f, "{name}")
     }
 }
 impl TryFrom<c_int> for GgmlType {
@@ -385,7 +385,7 @@ impl TryFrom<c_int> for GgmlType {
             34 => Ok(Self::TQ1_0),
             35 => Ok(Self::TQ2_0),
             39 => Ok(Self::Count),
-            _ => Err(anyhow!("Invalid GGML type ID: {}", value)),
+            _ => Err(anyhow!("Invalid GGML type ID: {value}")),
         }
     }
 }
@@ -416,7 +416,7 @@ impl Display for LlamaBatch {
         // Display token IDs
         if !self.token.is_null() {
             let tokens = unsafe { std::slice::from_raw_parts(self.token, self.n_tokens as usize) };
-            writeln!(f, "  token: {:?}", tokens)?;
+            writeln!(f, "  token: {tokens:?}")?;
         } else {
             writeln!(f, "  token: null")?;
         }
@@ -424,7 +424,7 @@ impl Display for LlamaBatch {
         // Display positions
         if !self.pos.is_null() {
             let pos = unsafe { std::slice::from_raw_parts(self.pos, self.n_tokens as usize) };
-            writeln!(f, "  pos: {:?}", pos)?;
+            writeln!(f, "  pos: {pos:?}")?;
         } else {
             writeln!(f, "  pos: null")?;
         }
@@ -436,17 +436,22 @@ impl Display for LlamaBatch {
         if !self.n_seq_id.is_null() && !self.seq_id.is_null() {
             let n_seq =
                 unsafe { std::slice::from_raw_parts(self.n_seq_id, self.n_tokens as usize) };
-            writeln!(f, "  n_seq_id: {:?}", n_seq)?;
+            writeln!(f, "  n_seq_id: {n_seq:?}")?;
 
             writeln!(f, "  seq_id:")?;
+            // todo investigate and fix
+            //-             for i in 0..(self.n_tokens as usize) {
+            //+             for (i, <item>) in n_seq.iter().enumerate().take((self.n_tokens as usize)) {
+
+            #[allow(clippy::needless_range_loop)]
             for i in 0..(self.n_tokens as usize) {
                 let count = n_seq[i];
                 let ptr = unsafe { *self.seq_id.add(i) };
                 if !ptr.is_null() {
                     let ids = unsafe { std::slice::from_raw_parts(ptr, count as usize) };
-                    writeln!(f, "    [{}]: {:?}", i, ids)?;
+                    writeln!(f, "    [{i}]: {ids:?}")?;
                 } else {
-                    writeln!(f, "    [{}]: null", i)?;
+                    writeln!(f, "    [{i}]: null")?;
                 }
             }
         } else {
@@ -477,6 +482,7 @@ pub struct LlamaOptions {
     pub verbose: bool,
 }
 
+#[allow(clippy::derivable_impls)]
 impl Default for LlamaOptions {
     fn default() -> Self {
         Self {
