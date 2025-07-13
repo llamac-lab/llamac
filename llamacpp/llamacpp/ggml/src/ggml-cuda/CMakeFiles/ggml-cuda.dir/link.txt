@@ -1,1 +1,0 @@
-/usr/bin/g++ -fPIC -shared -Wl,-soname,libggml-cuda.so -o ../../../../bin/libggml-cuda.so @CMakeFiles/ggml-cuda.dir/objects1.rsp @CMakeFiles/ggml-cuda.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"
