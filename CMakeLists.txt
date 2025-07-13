@@ -10,12 +10,11 @@ set(CMAKE_C_STANDARD 11)
 set(CUDA_MIN_VER 12.4)                                    # whatever you need
 find_package(CUDAToolkit ${CUDA_MIN_VER} REQUIRED)
 
-# Make CMake stop if someone “helpfully” points to an older toolkit:
 if(CUDAToolkit_VERSION VERSION_LESS CUDA_MIN_VER)
     message(FATAL_ERROR "Need CUDA ≥ ${CUDA_MIN_VER}")
 endif()
 
-# GPU architectures – keep your previous guard, but semicolons are canonical
+# GPU architectures
 set(DEFAULT_ARCHS "89")
 if(NOT CMAKE_CUDA_ARCHITECTURES)
     set(CMAKE_CUDA_ARCHITECTURES ${DEFAULT_ARCHS}
@@ -34,12 +33,16 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 # Forward llama.cpp config to subdir
 set(LLAMA_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-set(BUILD_SHARED_LIBS ON CACHE BOOL "" FORCE)              # or OFF if you want static
-set(BUILD_TOOLS ON CACHE BOOL "" FORCE)              # or OFF if you want static
-set(GGML_CUDA ON CACHE BOOL "" FORCE)
-set(GGML_CUDA_FORCE_CUBLAS ON CACHE BOOL "" FORCE)
+set(BUILD_SHARED_LIBS ON CACHE BOOL "" FORCE)
+set(BUILD_TOOLS ON CACHE BOOL "" FORCE)
+#set(GGML_CUDA ON CACHE BOOL "" FORCE)
+#set(GGML_CUDA_FORCE_CUBLAS ON CACHE BOOL "" FORCE)
+option(GGML_CUDA "Enable CUDA backend in ggml" ON)      # default ON for dev boxes
+option(GGML_CUDA_FORCE_CUBLAS "Force cuBLAS kernels" OFF)
+
 set(LLAMA_STANDALONE ON CACHE BOOL "" FORCE)
 set(GGML_THREADS ON CACHE BOOL "" FORCE)
+
 
 add_subdirectory(llamacpp)
 ## core/tensor etc

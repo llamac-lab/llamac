@@ -33,7 +33,7 @@ jobs:
             CUDA_ARGS="-DGGML_CUDA=OFF"
           fi
           
-          cmake .. -G Ninja -DCMAKE_CUDA_ARCHITECTURES=89 $CUDA_ARGS
+          cmake .. -G Ninja -DGGML_CUDA=OFF
           ninja
 
       - name: Mark build successful (no GPU testing)
