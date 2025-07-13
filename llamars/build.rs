@@ -5,7 +5,7 @@ fn main() {
     let crate_dir = PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap());
     let llama_src_dir = crate_dir.join("../llamacpp");
     let llama_build_dir = llama_src_dir.join("build");
-
+    let in_ci = std::env::var("CI").is_ok();
     // let cmake_cache = llama_build_dir.join("CMakeCache.txt");
     // let cmake_files = llama_build_dir.join("CMakeFiles");
     // 
@@ -23,18 +23,26 @@ fn main() {
     fs::create_dir_all(&llama_build_dir).expect("Failed to create build dir");
 
     // Configure
+    let mut cmake_args = vec![
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DLLAMA_BUILD_EXAMPLES=OFF",
+        "-DDBUILD_SHARED_LIBS=OFF",
+        "-DLLAMA_STANDALONE=ON",
+        "-DGGML_THREADS=ON",
+    ];
+
+    if in_ci {
+        cmake_args.push("-DGGML_CUDA=OFF");
+    } else {
+        cmake_args.push("-DGGML_CUDA=ON");
+        cmake_args.push("-DGGML_CUDA_FORCE_CUBLAS=ON");
+    }
+
+    cmake_args.push(llama_src_dir.to_str().unwrap());
+    
     let status = Command::new("cmake")
         .current_dir(&llama_build_dir)
-        .args([
-            "-DCMAKE_BUILD_TYPE=Release",
-            "-DLLAMA_BUILD_EXAMPLES=OFF",
-            "-DDBUILD_SHARED_LIBS=OFF",
-            "-DGGML_CUDA=ON",
-            "-DGGML_CUDA_FORCE_CUBLAS=ON",
-            "-DLLAMA_STANDALONE=ON",
-            "-DGGML_THREADS=ON",
-            llama_src_dir.to_str().unwrap(),
-        ])
+        .args(&cmake_args)
         .status()
         .expect("Failed to run cmake");
 
