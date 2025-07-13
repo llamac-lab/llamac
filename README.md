@@ -4,12 +4,12 @@
 
 **llamac-lab** is a lightweight, portable C runtime for LLaMA-based models - designed (being designed, have the goal) for tiny devices, embedded systems, and people who like things fast, flat, and minimal.
 
-> Think [`llama.cpp`](https://github.com/ggerganov/llama.cpp), but:
->
-> * Flattened into C (no C++)
-> * Slimmed down for constrained environments
-> * Easy to embed into Rust, Python, etc.
-> * Born for edge and embedded AI work
+ Think [`llama.cpp`](https://github.com/ggerganov/llama.cpp), but:
+
+ * Flattened into C (no C++)
+ * Slimmed down for constrained environments
+ * Easy to embed into Rust, Python, etc.
+ * Born for edge and embedded AI work
 
 
 **Work in progress**: not production-ready, not stable — but *it runs*.
