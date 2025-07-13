@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libllamac.a CMakeFiles/llamac.dir/src/llamac.c.o CMakeFiles/llamac.dir/llmclm/src/matmul.cu.o
+/usr/bin/ranlib ../lib/libllamac.a

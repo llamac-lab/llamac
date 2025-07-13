@@ -1,0 +1,1 @@
+ -Wl,-rpath,/home/ervin/workspace/POC/llamac-lab/llamacpp/bin ../../bin/libllama.so ../../lib/libllamac.a ../../bin/libggml.so "../../bin/libggml-cuda.so" "/usr/local/cuda/targets/x86_64-linux/lib/stubs/libcuda.so" "../../bin/libggml-cpu.so" "../../bin/libggml-base.so" -lcudadevrt -lcudart_static -lrt -lpthread -ldl 

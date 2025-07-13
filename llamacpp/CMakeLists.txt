@@ -1,27 +1,27 @@
 cmake_minimum_required(VERSION 3.14) # for add_link_options and implicit target directories.
 project("llamacpp" C CXX)
+
+# ---- llamac-lab mods
+#find_package(CUDAToolkit QUIET)
+#if(CUDAToolkit_FOUND)
+#    set(GGML_CUDA ON)
+#    set(GGML_CUDA_FORCE_CUBLAS ON)
+#else()
+#    message(WARNING "CUDA not found, GGML_CUDA will be OFF")
+#    set(GGML_CUDA OFF)
+#    set(GGML_CUDA_FORCE_CUBLAS OFF)
+#endif()
+#option(LLAMA_STANDALONE "Standalone mode" ON)
+#option(GGML_THREADS "Enable thread support" ON)
+#option(BUILD_SHARED_LIBS "Build shared libs" ON)
+#option(LLAMA_BUILD_EXAMPLES "Build examples" OFF)
+#
+#set(PROJECT_VERSION_MAJOR 0)
+#set(PROJECT_VERSION_MINOR 1)
+#set(PROJECT_VERSION_PATCH 0)
+## ---- llamac-lab mods
+
 include(CheckIncludeFileCXX)
-
-
-# ---- llamac-lab mods
-find_package(CUDAToolkit QUIET)
-if(CUDAToolkit_FOUND)
-    set(GGML_CUDA ON)
-    set(GGML_CUDA_FORCE_CUBLAS ON)
-else()
-    message(WARNING "CUDA not found, GGML_CUDA will be OFF")
-    set(GGML_CUDA OFF)
-    set(GGML_CUDA_FORCE_CUBLAS OFF)
-endif()
-option(LLAMA_STANDALONE "Standalone mode" ON)
-option(GGML_THREADS "Enable thread support" ON)
-option(BUILD_SHARED_LIBS "Build shared libs" OFF)
-option(LLAMA_BUILD_EXAMPLES "Build examples" OFF)
-
-set(PROJECT_VERSION_MAJOR 0)
-set(PROJECT_VERSION_MINOR 1)
-set(PROJECT_VERSION_PATCH 0)
-# ---- llamac-lab mods
 
 
 #set(CMAKE_WARN_DEPRECATED YES)

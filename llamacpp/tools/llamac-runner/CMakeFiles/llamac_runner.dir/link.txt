@@ -1,0 +1,1 @@
+/usr/bin/g++ @CMakeFiles/llamac_runner.dir/objects1.rsp CMakeFiles/llamac_runner.dir/cmake_device_link.o -o ../../bin/llamac_runner @CMakeFiles/llamac_runner.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"

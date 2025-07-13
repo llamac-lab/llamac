@@ -28,15 +28,23 @@ include_directories(
         ${CMAKE_SOURCE_DIR}/llamacpp/ggml/include
 )
 
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-# core/tensor etc
-add_subdirectory(llamac)
+# Forward llama.cpp config to subdir
+set(LLAMA_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+set(BUILD_SHARED_LIBS ON CACHE BOOL "" FORCE)              # or OFF if you want static
+set(BUILD_TOOLS ON CACHE BOOL "" FORCE)              # or OFF if you want static
+set(GGML_CUDA ON CACHE BOOL "" FORCE)
+set(GGML_CUDA_FORCE_CUBLAS ON CACHE BOOL "" FORCE)
+set(LLAMA_STANDALONE ON CACHE BOOL "" FORCE)
+set(GGML_THREADS ON CACHE BOOL "" FORCE)
+
 add_subdirectory(llamacpp)
-# tools/examples etc
+## core/tensor etc
+add_subdirectory(llamac)
+## tools/examples etc
 add_subdirectory(tools/llamac-runner)
 add_subdirectory(tools/guuf-reader)
 

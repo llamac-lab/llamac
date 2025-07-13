@@ -15,5 +15,10 @@ target_include_directories(llamac_runner PRIVATE
         ${CMAKE_SOURCE_DIR}/llamacpp20/ggml/include
 )
 
-target_link_libraries(llamac_runner PRIVATE llamac)
-
+target_link_libraries(llamac_runner
+        PRIVATE
+        rt
+        llamac
+        llama
+        Threads::Threads ${CMAKE_DL_LIBS}
+)

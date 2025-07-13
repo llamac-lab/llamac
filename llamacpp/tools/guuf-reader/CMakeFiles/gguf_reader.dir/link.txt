@@ -1,0 +1,1 @@
+/usr/bin/g++ @CMakeFiles/gguf_reader.dir/objects1.rsp CMakeFiles/gguf_reader.dir/cmake_device_link.o -o ../../bin/gguf_reader @CMakeFiles/gguf_reader.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"
