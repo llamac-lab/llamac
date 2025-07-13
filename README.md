@@ -11,11 +11,9 @@
 > * Easy to embed into Rust, Python, etc.
 > * Born for edge and embedded AI work
 
----
 
 **Work in progress**: not production-ready, not stable — but *it runs*.
 
----
 
 ## Current Components
 
@@ -29,7 +27,6 @@
 > Utility to parse and print GGUF metadata
 > Currently supports GGUF v3 files. Helpful for tooling/debugging and figuring out what's inside that 4GB `gguf`.
 
----
 
 ## `llamars` (Rust)
 
@@ -40,7 +37,6 @@ Experimental Rust wrapper for the llama.cpp C API. **Early days**, but:
 * Tested with CUDA builds
 * Known issue: greedy sampling sometimes collapses into... garlic quesadilla recursion 🍽️
 
----
 
 ## Example Output
 
@@ -48,7 +44,6 @@ Experimental Rust wrapper for the llama.cpp C API. **Early days**, but:
 
 <img width="1793" height="387" alt="image" src="https://github.com/user-attachments/assets/f88d8620-19f1-490a-861f-599fca071e1f" />
 
----
 
 ## Status
 
@@ -60,7 +55,6 @@ This repo is:
 
 Want to play with LLaMA on embedded Linux, micro-servers, or inside your Rust app? This project might help.
 
----
 
 ## License
 
