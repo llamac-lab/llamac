@@ -17,25 +17,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Rust
-        uses: actions/setup-rust@v1
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
         with:
-          rust-version: stable
+          toolchain: stable
+          override: true
+          components: clippy, rustfmt
 
-      - name: Install build dependencies
+      - name: Install build deps
         run: sudo apt-get update && sudo apt-get install -y cmake build-essential
 
-      - name: Build llamars crate
-        run: cargo build --release
+      - name: Format check
+        run: cargo fmt --all -- --check
 
-      - name: Run Clippy (linter of pain)
+      - name: Lint (clippy)
         run: cargo clippy --all-targets --all-features -- -D warnings
 
-      - name: Run tests (if any)
-        run: cargo test || echo "No tests yet, skipping."
+      - name: Build
+        run: cargo build --release
 
-      - name: Mark success
-        run: echo "llamars Rust crate built successfully
-
-      - name: Check formatting
-        run: cargo fmt --all -- --check
+      - name: Test (optional)
+        run: cargo test || echo "No tests, skipping"
