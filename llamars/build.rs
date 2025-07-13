@@ -26,6 +26,7 @@ fn main() {
 
     if in_ci {
         cmake_args.push("-DGGML_CUDA=OFF");
+        cmake_args.push("-DLLAMA_CURL=OFF");
     } else {
         cmake_args.push("-DGGML_CUDA=ON");
         cmake_args.push("-DGGML_CUDA_FORCE_CUBLAS=ON");

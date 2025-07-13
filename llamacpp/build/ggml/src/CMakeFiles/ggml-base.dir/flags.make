@@ -3,13 +3,13 @@
 
 # compile C with /usr/bin/cc
 # compile CXX with /usr/bin/c++
-C_DEFINES = -DGGML_BUILD -DGGML_COMMIT=\"06ca87e\" -DGGML_SCHED_MAX_COPIES=4 -DGGML_SHARED -DGGML_VERSION=\"0.0.39\" -D_GNU_SOURCE -D_XOPEN_SOURCE=600 -Dggml_base_EXPORTS
+C_DEFINES = -DGGML_BUILD -DGGML_COMMIT=\"cc2c563\" -DGGML_SCHED_MAX_COPIES=4 -DGGML_SHARED -DGGML_VERSION=\"0.0.40\" -D_GNU_SOURCE -D_XOPEN_SOURCE=600 -Dggml_base_EXPORTS
 
 C_INCLUDES = -I/home/ervin/workspace/POC/llamac-lab/llamac/llamacpp/ggml/src/. -I/home/ervin/workspace/POC/llamac-lab/llamac/llamacpp/ggml/src/../include
 
 C_FLAGS = -O3 -DNDEBUG -std=gnu11 -fPIC -Wshadow -Wstrict-prototypes -Wpointer-arith -Wmissing-prototypes -Werror=implicit-int -Werror=implicit-function-declaration -Wall -Wextra -Wpedantic -Wcast-qual -Wno-unused-function -Wdouble-promotion
 
-CXX_DEFINES = -DGGML_BUILD -DGGML_COMMIT=\"06ca87e\" -DGGML_SCHED_MAX_COPIES=4 -DGGML_SHARED -DGGML_VERSION=\"0.0.39\" -D_GNU_SOURCE -D_XOPEN_SOURCE=600 -Dggml_base_EXPORTS
+CXX_DEFINES = -DGGML_BUILD -DGGML_COMMIT=\"cc2c563\" -DGGML_SCHED_MAX_COPIES=4 -DGGML_SHARED -DGGML_VERSION=\"0.0.40\" -D_GNU_SOURCE -D_XOPEN_SOURCE=600 -Dggml_base_EXPORTS
 
 CXX_INCLUDES = -I/home/ervin/workspace/POC/llamac-lab/llamac/llamacpp/ggml/src/. -I/home/ervin/workspace/POC/llamac-lab/llamac/llamacpp/ggml/src/../include
 
