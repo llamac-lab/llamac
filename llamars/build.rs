@@ -6,19 +6,12 @@ fn main() {
     let llama_src_dir = crate_dir.join("../llamacpp");
     let llama_build_dir = llama_src_dir.join("build");
     let in_ci = std::env::var("CI").is_ok();
-    // let cmake_cache = llama_build_dir.join("CMakeCache.txt");
-    // let cmake_files = llama_build_dir.join("CMakeFiles");
-    //
-    // // Only delete if cache exists
-    // if cmake_cache.exists() {
-    //     eprintln!("Removing stale CMake cache...");
-    //     let _ = std::fs::remove_file(&cmake_cache);
-    //     let _ = std::fs::remove_dir_all(&cmake_files);
-    // }
-    // println!(
-    //     "cargo:rerun-if-changed={}",
-    //     llama_src_dir.join("CMakeLists.txt").display()
-    // );
+
+    if in_ci {
+        // nuke if in ci
+        let _ = fs::remove_dir_all(&llama_build_dir); // Kill previous CMake cache
+        fs::create_dir_all(&llama_build_dir).expect("Failed to recreate build dir");
+    }
 
     fs::create_dir_all(&llama_build_dir).expect("Failed to create build dir");
 
