@@ -22,17 +22,20 @@ if(NOT CMAKE_CUDA_ARCHITECTURES)
             CACHE STRING "GPU arch list" FORCE)       # :contentReference[oaicite:0]{index=0}
 endif()
 
-include_directories(${CMAKE_SOURCE_DIR}/include)
+include_directories(
+        ${CMAKE_SOURCE_DIR}/include
+        ${CMAKE_SOURCE_DIR}/llamacpp/include
+        ${CMAKE_SOURCE_DIR}/llamacpp/ggml/include
+)
 
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-
 # core/tensor etc
 add_subdirectory(llamac)
-add_subdirectory(llamacpp20)
+add_subdirectory(llamacpp)
 # tools/examples etc
 add_subdirectory(tools/llamac-runner)
 add_subdirectory(tools/guuf-reader)

@@ -19,18 +19,21 @@ jobs:
         run: |
           apt update && apt install -y cmake ninja-build build-essential
 
-      - name: Configure CMake
+      - name: Configure and Build with CMake + Ninja
         run: |
-          rm -rf build  # always nuke the cache
-          mkdir build
-          cd build
-          cmake .. -G Ninja -DCMAKE_CUDA_ARCHITECTURES=89
-
-      - name: Build with CMake + Ninja
-        run: |
+          rm -rf build
           mkdir -p build
           cd build
-          cmake .. -G Ninja -DCMAKE_CUDA_ARCHITECTURES=89
+          
+          if nvidia-smi > /dev/null 2>&1; then
+            echo "GPU detected. Enabling CUDA."
+            CUDA_ARGS="-DGGML_CUDA=ON -DGGML_CUDA_FORCE_CUBLAS=ON"
+          else
+            echo "No GPU detected. Disabling CUDA."
+            CUDA_ARGS="-DGGML_CUDA=OFF"
+          fi
+          
+          cmake .. -G Ninja -DCMAKE_CUDA_ARCHITECTURES=89 $CUDA_ARGS
           ninja
 
       - name: Mark build successful (no GPU testing)
