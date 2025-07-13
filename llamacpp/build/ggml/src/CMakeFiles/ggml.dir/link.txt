@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -O3 -DNDEBUG -shared -Wl,-soname,libggml.so -o ../../bin/libggml.so "CMakeFiles/ggml.dir/ggml-backend-reg.cpp.o"  -Wl,-rpath,/home/ervin/workspace/POC/llamac-lab/llamac/llamacpp/build/bin: -ldl ../../bin/libggml-cpu.so ../../bin/libggml-cuda.so ../../bin/libggml-base.so /usr/local/cuda/targets/x86_64-linux/lib/stubs/libcuda.so -ldl

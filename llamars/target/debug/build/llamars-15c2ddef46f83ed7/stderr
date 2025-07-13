@@ -1,0 +1,8 @@
+CMake Warning at common/CMakeLists.txt:32 (message):
+  Git repository not found; to enable automatic generation of build info,
+  make sure Git is installed and the project is a Git repository.
+
+
+[debug] .so glob pattern: /home/ervin/workspace/POC/llamac-lab/llamac/llamars/../llamacpp/build/bin/*.so
+[debug] .so glob pattern: /home/ervin/workspace/POC/llamac-lab/llamac/llamars/../llamacpp/build/lib/*.so
+[debug] .so glob pattern: /home/ervin/workspace/POC/llamac-lab/llamac/llamars/../llamacpp/build/*.so

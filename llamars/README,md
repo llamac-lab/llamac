@@ -1,0 +1,16 @@
+# llamars
+
+A Rust wrapper for the llama.cpp library, providing safe and ergonomic bindings for running LLaMA models in Rust applications.
+
+## Features (WIP!!)
+
+- **Safe Rust API** - Memory-safe wrappers around llama.cpp functionality
+- **High Performance** - Direct bindings to optimized C++ implementation
+- **Easy to Use** - Builder pattern for configuration and simple API design
+- **Chat Support** - Built-in conversation management and chat templates
+- **Interactive Mode** - Ready-to-use interactive chat interface
+- **Flexible** - Support for various model formats and configurations
+- **Cross Platform** - Works on Linux, macOS, and Windows
+- **GPU Acceleration** - CUDA, Metal, and OpenCL support
+
+## Installation

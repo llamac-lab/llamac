@@ -1,0 +1,82 @@
+cargo:rerun-if-changed=/home/ervin/workspace/POC/llamac-lab/llamac/llamars/../llamacpp/CMakeLists.txt
+-- Warning: ccache not found - consider installing it for faster compilation or disable this warning with GGML_CCACHE=OFF
+-- CMAKE_SYSTEM_PROCESSOR: x86_64
+-- GGML_SYSTEM_ARCH: x86
+-- Including CPU backend
+-- x86 detected
+-- Adding CPU backend variant ggml-cpu: -march=native 
+-- CUDA Toolkit found
+-- Using CUDA architectures: native
+-- CUDA host compiler is GNU 11.4.0
+-- Including CUDA backend
+-- ggml version: 0.0.30
+-- ggml commit:  bee9cd9
+-- Configuring done (0.1s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/ervin/workspace/POC/llamac-lab/llamac/llamacpp/build
+[  0%] Built target build_info
+[  0%] Built target llama-minicpmv-cli
+[  1%] Built target llama-qwen2vl-cli
+[  1%] Built target llama-gemma3-cli
+[  2%] Built target llama-llava-cli
+[  5%] Built target ggml-base
+[ 10%] Built target ggml-cpu
+[ 43%] Built target ggml-cuda
+[ 44%] Built target ggml
+[ 53%] Built target llama
+[ 54%] Built target test-c
+[ 56%] Built target mtmd
+[ 61%] Built target common
+[ 62%] Built target test-tokenizer-0
+[ 63%] Built target test-llama-grammar
+[ 65%] Built target test-sampling
+[ 65%] Built target test-grammar-parser
+[ 66%] Built target test-grammar-integration
+[ 67%] Built target test-chat
+[ 68%] Built target test-json-schema-to-grammar
+[ 69%] Built target test-quantize-stats
+[ 70%] Built target test-gbnf-validator
+[ 71%] Built target test-tokenizer-1-bpe
+[ 72%] Built target test-tokenizer-1-spm
+[ 73%] Built target test-chat-parser
+[ 74%] Built target test-chat-template
+[ 75%] Built target test-json-partial
+[ 76%] Built target test-log
+[ 78%] Built target test-regex-partial
+[ 78%] Built target test-thread-safety
+[ 79%] Built target test-arg-parser
+[ 80%] Built target test-gguf
+[ 82%] Built target test-model-load-cancel
+[ 82%] Built target test-backend-ops
+[ 83%] Built target test-autorelease
+[ 84%] Built target test-barrier
+[ 85%] Built target test-quantize-fns
+[ 86%] Built target test-mtmd-c-api
+[ 89%] Built target test-quantize-perf
+[ 89%] Built target test-rope
+[ 89%] Built target llama-batched-bench
+[ 89%] Built target llama-gguf-split
+[ 90%] Built target llama-imatrix
+[ 91%] Built target llama-bench
+[ 92%] Built target llama-perplexity
+[ 92%] Built target llama-tokenize
+[ 94%] Built target llama-cli
+[ 94%] Built target llama-quantize
+[ 94%] Built target llama-cvector-generator
+[ 95%] Built target llama-tts
+[ 96%] Built target llama-mtmd-cli
+[ 97%] Built target llama-export-lora
+[ 99%] Built target llama-server
+[100%] Built target llama-run
+cargo:rustc-link-search=native=/home/ervin/workspace/POC/llamac-lab/llamac/llamars/target/debug/build/llamars-15c2ddef46f83ed7/out
+cargo:rustc-link-lib=dylib=ggml-base
+cargo:rustc-link-search=native=/home/ervin/workspace/POC/llamac-lab/llamac/llamars/target/debug/build/llamars-15c2ddef46f83ed7/out
+cargo:rustc-link-lib=dylib=ggml-cpu
+cargo:rustc-link-search=native=/home/ervin/workspace/POC/llamac-lab/llamac/llamars/target/debug/build/llamars-15c2ddef46f83ed7/out
+cargo:rustc-link-lib=dylib=ggml-cuda
+cargo:rustc-link-search=native=/home/ervin/workspace/POC/llamac-lab/llamac/llamars/target/debug/build/llamars-15c2ddef46f83ed7/out
+cargo:rustc-link-lib=dylib=ggml
+cargo:rustc-link-search=native=/home/ervin/workspace/POC/llamac-lab/llamac/llamars/target/debug/build/llamars-15c2ddef46f83ed7/out
+cargo:rustc-link-lib=dylib=llama
+cargo:rustc-link-search=native=/home/ervin/workspace/POC/llamac-lab/llamac/llamars/target/debug/build/llamars-15c2ddef46f83ed7/out
+cargo:rustc-link-lib=dylib=mtmd

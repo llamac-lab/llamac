@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG "CMakeFiles/test-c.dir/test-c.c.o" -o ../bin/test-c  -Wl,-rpath,/home/ervin/workspace/POC/llamac-lab/llamac/llamacpp/build/bin ../bin/libllama.so ../bin/libggml.so ../bin/libggml-cpu.so ../bin/libggml-cuda.so ../bin/libggml-base.so /usr/local/cuda/targets/x86_64-linux/lib/stubs/libcuda.so

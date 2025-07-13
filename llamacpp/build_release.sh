@@ -11,7 +11,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DGGML_CUDA=ON \
       -DGGML_CUDA_FORCE_CUBLAS=ON \
       -DLLAMA_STANDALONE=ON \
-      -DGGML_THREADS=ON   ..
+      -DGGML_THREADS=ON   
 make -j$(nproc)
 
 
