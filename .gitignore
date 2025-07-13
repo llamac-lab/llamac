@@ -97,3 +97,5 @@ __pycache__/
 
 # debug information files
 *.dwo
+
+llamacpp/build/
