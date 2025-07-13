@@ -13,7 +13,12 @@ option(GGML_CUDA_FORCE_CUBLAS "Force cuBLAS kernels"     OFF)
 
 # -----------
 set(LLAMAC_SRC  src/llamac.c
-        src/generate_stub.c)
+        include/llamac_config.h
+        src/llamac_runtime.c
+        src/generate_stub.c
+        src/llamac_internal.h
+        include/llamac_log.h
+        src/llamac_log.c)
 set(LLAMAC_PRIVATE_LIBS Threads::Threads )
 
 if (GGML_CUDA)

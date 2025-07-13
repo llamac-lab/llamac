@@ -10,13 +10,13 @@
 
 /* example call
 
-./llamac-runner \
-  --model /models/tinyllama.gguf \
+./llamac_runner \
+  --model  ~/tinyllama-1.1b-chat-v1.0.Q4_0.gguf  \
   --ctx 1024 \
   --tokens 512 \
   --temp 0.7 \
   --top_p 0.9 \
-  --prompt "Describe a future where AI governs a floating city.
+  --prompt "Describe a future where AI governs a floating city."
 
 */
 
@@ -51,10 +51,13 @@ int main(int argc, char **argv) {
     }
 
     // and lets inference
-    llamac_runtime runtime = {0};
-    llamac_runtime_init();
+    //llamac_runtime runtime = {0};
+    llamac_runtime *rt = llamac_runtime_create();
+    if (!rt) return 1;
 
-    if (llamac_model_load(model_path, 32, ctx_size, num_tokens, temperature, top_p, &runtime) != 0) {
+    //llamac_runtime_init();
+
+    if (llamac_model_load(model_path, 32, ctx_size, num_tokens, temperature, top_p, rt) != 0) {
         fprintf(stderr, "Failed to load model: %s\n", model_path);
         return 1;
     }
@@ -63,13 +66,13 @@ int main(int argc, char **argv) {
     char buffer[8192];
     int token_count = 0;
 
-    if (llamac_history_shot(prompt, "user", &runtime, buffer, sizeof(buffer), &token_count) == 0) {
+    if (llamac_history_shot(prompt, "user", rt, buffer, sizeof(buffer), &token_count) == 0) {
         printf("[output] %s\n", buffer);
     }
 
     printf("\n[entering chat mode]\n");
-    llamac_chat_history(&runtime, "user");
+    llamac_chat_history(rt, "user");
 
-    llamac_free(&runtime);
+    llamac_runtime_destroy(rt);
     return 0;
 }

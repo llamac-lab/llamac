@@ -12,7 +12,7 @@
 
 
 #include "llamac.h"
-
+#include "llamac_internal.h"
 
 // --- the callback used by the chat loop
 typedef int (*generate_fn_t)(
@@ -27,26 +27,17 @@ typedef int (*generate_fn_t)(
 
 
 
+
+
+
+
+
+
 #define LLAMAC_DEBUG
 // ------------ logging
-struct log_config {
-    int level;
-};
 
-static void llamac_log_proxy(enum ggml_log_level level, const char * text, void * user_data) {
-    struct log_config *cfg = (struct log_config *) user_data;
-    if (level >= cfg->level) {
-        fprintf(stderr, "%s", text);
-    }
-}
 
-int llamac_runtime_init_with_log_level(int min_level) {
-    static struct log_config cfg;
-    cfg.level = min_level;
 
-    llama_log_set(llamac_log_proxy, &cfg);
-    return 0;
-}
 // ------------ logging
 
 const int MAX_RESPONSE_SIZE = 2048 * 8;
@@ -184,24 +175,9 @@ int generate_story(
     return 0; // success
 }
 
-void llamac_log_callback(enum ggml_log_level level, const char * text, void * user_data) {
-    // Adjust threshold here
-    if (level >= GGML_LOG_LEVEL_WARN) {
-        fprintf(stderr, "%s", text); // Only log warnings and errors
-    }
-}
 
 // -----------
-int llamac_runtime_init() {
-    setenv("GGML_CUDA_FORCE_MMQ", "1", 1);
-    setenv("GGML_CUDA_FORCE_CUBLAS", "1", 1);
-    ggml_backend_load_all();
 
-    llama_log_set(llamac_log_callback, NULL);
-    //llamac_runtime_init_with_log_level(GGML_LOG_LEVEL_DEBUG);
-
-    return 0;
-}
 
 void llamac_sampler_rebuild(llamac_runtime *rt) {
     if (rt->sampler) {
@@ -545,25 +521,7 @@ int llamac_chat(llamac_runtime *rt, const char *role) {
     return 0;
 }
 
-void llamac_free(llamac_runtime *rt) {
-    if (!rt) return;
 
-    // Free chat history roles
-    for (int i = 0; i < rt->history.count; ++i) {
-        if (rt->history.messages[i].role != NULL) {
-            free((void *)rt->history.messages[i].role);
-            rt->history.messages[i].role = NULL;
-        }
-    }
-
-    rt->history.count = 0;
-    rt->history.prev_len = 0;
-
-    // Free model-related components
-    if (rt->sampler) llama_sampler_free(rt->sampler);
-    if (rt->ctx) llama_free(rt->ctx);
-    if (rt->model) llama_model_free(rt->model);
-}
 
 void llamac_kv_cache_clear(struct llama_context * ctx) {
     GGML_ASSERT(ctx != NULL);
