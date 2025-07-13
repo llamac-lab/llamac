@@ -28,8 +28,9 @@ target_include_directories(gguf_reader PRIVATE
 # tools/gguf-reader/CMakeLists.txt
 
 target_link_libraries(gguf_reader PRIVATE
-        rt
-        llamac                            # brings in llama, pthread, dl transitively
-#        $<LINK_ONLY:Threads::Threads>     # (only if you skipped making them PUBLIC)
-#        $<LINK_ONLY:${CMAKE_DL_LIBS}>
+
+        llamac
+        $<LINK_ONLY:Threads::Threads>
+        $<LINK_ONLY:${CMAKE_DL_LIBS}>
+#        $<LINK_ONLY:rt>
 )

@@ -12,7 +12,8 @@ option(GGML_CUDA             "Enable CUDA backend in ggml" ON)
 option(GGML_CUDA_FORCE_CUBLAS "Force cuBLAS kernels"     OFF)
 
 # -----------
-set(LLAMAC_SRC  src/llamac.c)
+set(LLAMAC_SRC  src/llamac.c
+        src/generate_stub.c)
 set(LLAMAC_PRIVATE_LIBS Threads::Threads )
 
 if (GGML_CUDA)

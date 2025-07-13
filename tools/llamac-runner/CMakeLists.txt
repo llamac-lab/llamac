@@ -17,8 +17,10 @@ target_include_directories(llamac_runner PRIVATE
 
 target_link_libraries(llamac_runner
         PRIVATE
-        rt
         llamac
         llama
         Threads::Threads ${CMAKE_DL_LIBS}
+#        $<LINK_ONLY:Threads::Threads>
+#        $<LINK_ONLY:${CMAKE_DL_LIBS}>
+#        $<LINK_ONLY:rt>
 )
