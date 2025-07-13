@@ -20,7 +20,7 @@
 ### `llamac-runner` (C)
 
 > Basic inference runner for LLaMA models
-> Tested with [tinyllama](https://huggingface.co/cerebras/tinyllama-1.1b), working on direct GGUF integration.
+> Tested with [tinyllama](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0/tree/main), working on direct GGUF integration.
 
 ### `gguf-reader` (C)
 
